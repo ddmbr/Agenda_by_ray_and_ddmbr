@@ -17,10 +17,11 @@
 #define MEETINGMGR_H
 
 #include <string>
+#include <QString>
 #include "meeting.h"
-#include "time.h"
+#include "mtime.h"
 #include <fstream>
-#include "encryptor.h"
+#include "encryptor"
 #include "xmleditor.h"
 
 using namespace std;
@@ -43,7 +44,6 @@ private:
 	QDomDocument* doc;
 	string XMLstring;
 	fstream filestr;
-	int saveToFile();
 
 	//scope?temp instance?TODO
 	char eof;

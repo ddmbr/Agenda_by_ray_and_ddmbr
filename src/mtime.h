@@ -1,11 +1,11 @@
 // =====================================================================================
 // 
-//       Filename:  meeting.h
+//       Filename:  time.h
 // 
-//    Description:  This is the basic meeting element
+//    Description:  TODO
 // 
 //        Version:  1.0
-//        Created:  08/01/2011 02:53:39 PM
+//        Created:  08/01/2011 03:42:19 PM
 //       Revision:  none
 //       Compiler:  g++
 // 
@@ -13,10 +13,8 @@
 //        Company:  
 // 
 // =====================================================================================
-
-#include <QtXml>
-
-class Meeting:public QDomElement
+#include <ctime>
+class Time
 {
 
 };

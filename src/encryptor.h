@@ -1,6 +1,6 @@
 // =====================================================================================
 // 
-//       Filename:  encrypt.h
+//       Filename:  encryptor.h
 // 
 //    Description:  The module to encrypt data
 // 
@@ -13,8 +13,19 @@
 //        Company:  
 // 
 // =====================================================================================
+#include<string>
+#include<map>
+using std::map;
+using std::string;
+
 class Encryptor
 {
-	string encode(string data);
-	string decode(string data);
+	public:
+		Encryptor();
+
+		string encode(const string data);
+		string decode(const string data);
+	private:
+		bool isAllow(char c);
+		map<char,char> _encmap, _decmap;
 };

@@ -27,15 +27,20 @@ MeetingMgr::MeetingMgr()
 	doc = new QDomDocument;
 
 	//load file and extract XML info
-	filestr.open("./meeting.db", "fstream::in | fstream::out | fstream::app");
-	try
-	{
-		if(!filestr)
-			//TODO exception handling
-			throw e;
-		getline(filestr, XMLstring, eof);
-		XMLeditor::createXML(doc, &XMLstring);
-	}
+	//filestr.open("./meeting.db", "fstream::in | fstream::out | fstream::app");
+	XMLeditor::LoadFile("./meeting.db", &filestr, doc);
+	if(!filestr)
+		//TODO exception handling
+		//throw e;
+		;
+	getline(filestr, XMLstring, eof);
+
+	//decode the file
+	XMLstring = encryptor.decode(XMLstring);
+
+	//construct the DOM tree
+	XMLeditor::createXML(doc, &QString::fromStdString(XMLstring));	
+	XMLeditor::saveToFile(&filestr, doc);
 }
 int MeetingMgr::Add(string title, Time Start, Time End)
 {
@@ -46,8 +51,11 @@ int MeetingMgr::Add(string title, Time Start, Time End)
 	//need some method to process time
 	//TODO All the fucking staff about time managing
 	//TimeString = getTimeString()
-	
-	XMLeditor::AddAttribute(mewMeeting, "time", TimeString);
+	QString TimeString = "test";
+
+
+	XMLeditor::AddAttribute(newMeeting, QString("startTime"), TimeString);
+	XMLeditor::AddAttribute(newMeeting, QString("endTime"), TimeString);
 }
 string MeetingMgr::Query(Time Start, Time End)
 {
@@ -61,4 +69,7 @@ int MeetingMgr::Clear()
 {
 
 }
-
+int main()
+{
+	MeetingMgr test;
+}
