@@ -2,6 +2,7 @@
 #define USERMGR_H
 
 #include "user.h"
+#include "xmleditor.h"
 #include <QtXml>
 
 class UserMgr{

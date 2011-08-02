@@ -19,6 +19,9 @@
 #include <string>
 #include "meeting.h"
 #include "time.h"
+#include <fstream>
+#include "encryptor.h"
+#include "xmleditor.h"
 
 using namespace std;
 
@@ -37,8 +40,13 @@ public:
 	int Clear();
 private:
 	Meeting* GetMeeting(string title);
-	QDomDocument doc*;
+	QDomDocument* doc;
 	string XMLstring;
+	fstream filestr;
+	int saveToFile();
+
+	//scope?temp instance?TODO
+	char eof;
 };
 
 #endif
