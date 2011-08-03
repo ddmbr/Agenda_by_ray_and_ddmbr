@@ -1,0 +1,7 @@
+<MeetingContainer>
+    <testMeeting>
+        <startTime>test</startTime>
+        <endTime>test</endTime>
+        <Guest>testGuest</Guest>
+    </testMeeting>
+</MeetingContainer>
